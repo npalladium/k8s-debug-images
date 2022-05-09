@@ -1,2 +1,3 @@
-# docker-debug-images
-Docker images to help debug issues on Kuberenetes.
+# Kubernetes Debug Images
+Docker images to help debug issues on Kubernetes.
+

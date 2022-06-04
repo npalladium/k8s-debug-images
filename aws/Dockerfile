@@ -11,3 +11,4 @@ RUN python3 -m pip install pipx && python3 -m pipx ensurepath
 RUN python3 -m pipx install pgcli
 ENV AWS_PAGER=""
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip -q awscliv2.zip && ./aws/install && rm -rf awscliv2.zip
+RUN curl https://downloads.mongodb.com/compass/mongodb-mongosh_1.4.1_amd64.deb -o mongodb-mongosh_1.4.1_amd64.deb && dpkg -i mongodb-mongosh_1.4.1_amd64.deb

@@ -9,3 +9,4 @@ RUN install_packages \
 
 RUN python3 -m pip install pipx && python3 -m pipx ensurepath
 RUN python3 -m pipx install pgcli
+RUN curl https://downloads.mongodb.com/compass/mongodb-mongosh_1.4.1_amd64.deb -o mongodb-mongosh_1.4.1_amd64.deb && dpkg -i mongodb-mongosh_1.4.1_amd64.deb

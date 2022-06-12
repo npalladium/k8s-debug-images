@@ -54,3 +54,17 @@ jobs:
           tags: ${{ steps.meta-aws.outputs.tags }}
           labels: ${{ steps.meta-aws.outputs.labels }}
           file: aws/Dockerfile
+      - name: Extract Docker metadata for stress Image
+        id: meta-stress
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.REGISTRY }}/npalladium/k8s-stress-debug-image
+      - name: Build and push stress Docker image
+        id: build-and-push-stress
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta-stress.outputs.tags }}
+          labels: ${{ steps.meta-stress.outputs.labels }}
+          file: stress/Dockerfile

@@ -1,8 +1,12 @@
 FROM bitnami/minideb:bullseye
 
 RUN install_packages \
-    ca-certificates zip unzip gzip jq procps tar build-essential \
+    ca-certificates build-essential \
+    zip unzip gzip tar \
+    jq \
+    procps psmisc \
     inetutils-ping dnsutils curl wget \
+    tcpdump traceroute netcat openssl \
     python3 python3-pip python3-venv python3-setuptools python3-dev \
     postgresql-client libpq-dev \
     kubernetes-client

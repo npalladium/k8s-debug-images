@@ -27,19 +27,19 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Extract Docker metadata for Lite Image
-        id: meta-lite
+        id: meta-unflavoured
         uses: docker/metadata-action@v4
         with:
-          images: ${{ env.REGISTRY }}/npalladium/k8s-lite-debug-image
+          images: ${{ env.REGISTRY }}/npalladium/k8s-unflavoured-debug-image
       - name: Build and push Lite Docker image
-        id: build-and-push-lite
+        id: build-and-push-unflavoured
         uses: docker/build-push-action@v3
         with:
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta-lite.outputs.tags }}
-          labels: ${{ steps.meta-lite.outputs.labels }}
-          file: lite/Dockerfile
+          tags: ${{ steps.meta-unflavoured.outputs.tags }}
+          labels: ${{ steps.meta-unflavoured.outputs.labels }}
+          file: unflavoured/Dockerfile
       - name: Extract Docker metadata for AWS Image
         id: meta-aws
         uses: docker/metadata-action@v4
